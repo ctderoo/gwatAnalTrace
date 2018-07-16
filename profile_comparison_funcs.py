@@ -86,22 +86,21 @@ def norm_for_compare(simprofile,realprofile,bin_size,pix_size = pix_size,arcsec 
 # Comparing Simulation and Measurement for CSR figure.
 #################################################
 
-#def make_raytrace_measurements(order_repeats = 50,focus_repeats = 1,
-#							   diff_pickle_file = pickle_directory + '/180324_DiffRays_MgK14_orderStats.pk1',
-#							   foc_pickle_file = pickle_directory + '/180324_FocRays_MgK14_orderStats.pk1',wave = wave):
-#	if order_repeats > 0:
-#		traceGWAT.trace_gwat_orderStats(pickle_file = diff_pickle_file,repeats = order_repeats,wave  = wave)
-#	if focus_repeats > 0:
-#		traceGWAT.trace_gwat_orderStats(pickle_file = foc_pickle_file,repeats = focus_repeats,kind = 'focus',wave = wave)
-#
-#def load_raytrace_measurements(diff_pickle_file = pickle_directory + '/180324_DiffRays_MgK14_orderStats.pk1',
-#							   foc_pickle_file = pickle_directory + '/180324_FocRays_MgK14_orderStats.pk1') :
-#	diffRays = ArcRays.load_ray_object_from_pickle(diff_pickle_file)
-#	focRays = ArcRays.load_ray_object_from_pickle(foc_pickle_file)
-#	
-#	diffSimImg = gwatf.make_binned_image(diffRays.yield_prays(),xdiff = 26.,ydiff = 26.8)
-#	focSimImg = gwatf.make_binned_image(focRays.yield_prays(),xdiff = 26,ydiff = 26.8)
-#	return diffSimImg,focSimImg,diffRays,focRays
+def make_raytrace_measurements(order_repeats,focus_repeats,
+							   diff_pickle_file,
+							   foc_pickle_file,wave):
+	if order_repeats > 0:
+		traceGWAT.trace_gwat_orderStats(pickle_file = diff_pickle_file,repeats = order_repeats,wave  = wave)
+	if focus_repeats > 0:
+		traceGWAT.trace_gwat_orderStats(pickle_file = foc_pickle_file,repeats = focus_repeats,kind = 'focus',wave = wave)
+
+def load_raytrace_measurements(diff_pickle_file,foc_pickle_file) :
+	diffRays = ArcRays.load_ray_object_from_pickle(diff_pickle_file)
+	focRays = ArcRays.load_ray_object_from_pickle(foc_pickle_file)
+	
+	diffSimImg = gwatf.make_binned_image(diffRays.yield_prays(),xdiff = 26.,ydiff = 26.8)
+	focSimImg = gwatf.make_binned_image(focRays.yield_prays(),xdiff = 26,ydiff = 26.8)
+	return diffSimImg,focSimImg,diffRays,focRays
 
 def create_profiles(simImg,dataImg,disp_width = disp_width,cross_width = cross_width):
 	'''

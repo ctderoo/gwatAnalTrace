@@ -85,7 +85,7 @@ def set_gwat_order(order,facets):
     for key in facets.keys():
         facets[key].order_select = order
     
-def set_gwat_diff_eff(facets,diff_eff_pointer = '/Users/Casey/Software/Bitbucket/caldb-inputdata/gratings/Si_4um_deep_30pct_dc_extended.csv'):
+def set_gwat_diff_eff(facets,diff_eff_pointer = 'C:/Users/Casey/Software/Bitbucket/caldb-inputdata/gratings/Si_4um_deep_30pct_dc_extended.csv'):
     geff_func = ArcPerf.make_geff_interp_func(diff_eff_pointer,style = 'new')
     for key in facets.keys():
         facets[key].set_geff_func(geff_func)

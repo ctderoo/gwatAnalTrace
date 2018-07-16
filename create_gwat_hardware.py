@@ -104,7 +104,7 @@ offsets = [-(4 + 32.67/2),(4 + 32.67/2),-(9.82 + 32.67)/2,(9.82 + 32.67)/2]
 facet_names = ['X10','X14','X13','X15']
 facet_rolls = array([0.0,0.0,0.0,0.0]) #array([0.0,-0.7,-2.3,1.8])*pi/180/60
 
-print 'CAT Facet Rolls: ' + facet_rolls
+print 'CAT Facet Rolls: ' + str(facet_rolls)
 
 def roll_facets(roll_angles,facets):
     keys = facets.keys()
